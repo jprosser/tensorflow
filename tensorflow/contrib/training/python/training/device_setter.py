@@ -49,7 +49,7 @@ class RandomStrategy(object):
     key = key.encode("utf-8")
     # Use MD5 instead of Python's built-in hash() to get consistent outputs
     # between runs.
-    n = int(hashlib.md5(key).hexdigest(), 16)
+    n = int(hashlib.sha1(key).hexdigest(), 16)
     return int(n % self._num_tasks)
 
 
